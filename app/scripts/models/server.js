@@ -1,4 +1,4 @@
-define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], function(Q, $, purl, OData) {
+define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], function (Q, $, purl, OData) {
 	//JayData need global OData
 	window.OData = OData;
 
@@ -14,8 +14,9 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 		userURI: '/data/odata.svc/User',
 		loginURI: '/j_spring_security_check',
 		logoutURI: '/j_spring_security_logout',
+		restURI: '/data/rest',
 		authenticationURI: '/data/rest/SpringSecurity/Authentication',
-		fileUploadURL : '/data/rest/tools/fileupload/File'
+		fileUploadURL: '/data/rest/tools/fileupload/File'
 	};
 
 	server._db = null;
@@ -23,12 +24,12 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	/*
 	 server.getDb() return DB promise with cache
 	 */
-	server.getDb = function() {
+	server.getDb = function () {
 		if (!server._db) {
 			//Promise Fulfillment
 			var servicePromise = $data.initService(server.config.serverURL + server.config.odataURI);
 			var dbCacheDeferred = Q.defer();
-			servicePromise.then(function(remoteDBContext, contextFactory, contexType) {
+			servicePromise.then(function (remoteDBContext, contextFactory, contexType) {
 				var localDBContext = contextFactory({
 					name: 'local',
 					databaseName: 'GPlatformDB'
@@ -46,7 +47,7 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	/*
 	 server.getSession() return Session promise
 	 */
-	server.getSession = function() {
+	server.getSession = function () {
 		if (!server._session) {
 			var authMsg = $.ajax({
 						url: server.config.serverURL + server.config.authenticationURI,
@@ -56,12 +57,12 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 						}
 					}
 			);
-			server._session = Q(authMsg).then(function(data) {
-                var sessionData = {
-                    user: data
-                };
-                return sessionData;
-            });
+			server._session = Q(authMsg).then(function (data) {
+				var sessionData = {
+					user: data
+				};
+				return sessionData;
+			});
 		}
 		return server._session;
 	};
@@ -69,14 +70,14 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	/*
 	 server.destroySession() destroy session, so that can get fresh one via server.getSession()
 	 */
-	server.destroySession = function() {
+	server.destroySession = function () {
 		server._session = null;
 	};
 
 	/*
 	 server.login() fire login msg & update session
 	 */
-	server.login = function(loginData) {
+	server.login = function (loginData) {
 		var loginMsg = $.ajax({
 					url: server.config.serverURL + server.config.loginURI,
 					type: 'POST',
@@ -86,7 +87,7 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 					}
 				}
 		);
-		var promise = Q(loginMsg).then(function() {
+		var promise = Q(loginMsg).then(function () {
 			server.destroySession();
 			return server.getSession();
 		});
@@ -96,7 +97,7 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	/*
 	 server.logout() fire logout msg & update session
 	 */
-	server.logout = function() {
+	server.logout = function () {
 		var logoutMsg = $.ajax({
 					url: server.config.serverURL + server.config.logoutURI,
 					type: 'GET',
@@ -106,7 +107,7 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 				}
 		);
 		var promise = Q(logoutMsg).then(
-				function() {
+				function () {
 					server.destroySession();
 					return server.getSession();
 				}
@@ -117,7 +118,7 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	/*
 	 server.isLogin() check whether current session login
 	 */
-	server.isLogin = function() {
+	server.isLogin = function () {
 		var data = server.getSession().inspect().value;
 		if (data) {
 			return (data.user.name != 'anonymousUser');
