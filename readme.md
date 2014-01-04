@@ -1,0 +1,1 @@
+Infra project used to be a base for application
