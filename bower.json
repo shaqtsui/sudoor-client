@@ -1,5 +1,5 @@
 {
-  "name": "gplatform-client-pcbrowser",
+  "name": "client-infra",
   "version": "0.1.0",
   "dependencies": {
     "plupload": "~2.1.0",
