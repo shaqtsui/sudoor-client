@@ -38,9 +38,9 @@ module.exports = function (grunt) {
 
 	                optimize:'none',
 			        baseUrl: "<%= yeoman.app %>/bower_components",
-                    mainConfigFile: '<%= yeoman.app %>/scripts/models/requirejs.config.js',
+                    mainConfigFile: '<%= yeoman.app %>/scripts/requirejs.config.js',
                     out: '<%= yeoman.app %>/scripts/requirejs.optimized.js',
-                    name:'scripts/cache'
+                    name:'client-infra/app/scripts/main'
                 }
             }
         },

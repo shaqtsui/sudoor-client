@@ -7,21 +7,20 @@
  */
 require.config({
 
-	//baseUrl value currently relative to outer html page, suppose to change it to base on config script location
+	//baseUrl default to bower_components path
 	baseUrl: '../../bower_components',
 
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
-		//For scripts & styles
-		scripts: '../scripts',
-		vendor: '../scripts/vendor',
-		models: '../scripts/models',
-		styles: '../styles',
-
 		//For named module
 		jquery: 'jquery/jquery',
-		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
-		OData: '../scripts/vendor/datajs/datajs-1.1.1'
+		datajs: 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
+		OData: 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1'
+
+		//if self pkg not under bower_components, don't look for it under bower_components
+//		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
+//		OData: '../scripts/vendor/datajs/datajs-1.1.1',
+//		'client-infra': '../..'
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
@@ -36,7 +35,7 @@ require.config({
 		}
 	},
 	shim: {
-		'swipe/swipe': ['jquery', 'css!styles/vendor/swipe/swipe'],
+		'swipe/swipe': ['jquery', 'css!client-infra/app/styles/vendor/swipe/swipe'],
 		'jquery-ui/ui/jquery-ui': ['jquery', 'css!jquery-ui/themes/base/jquery-ui'],
 		'purl/purl': ['jquery'],
 		'bootstrap/dist/js/bootstrap': ['jquery', 'css!bootstrap/dist/css/bootstrap', 'css!bootstrap/dist/css/bootstrap-theme'],

@@ -1,4 +1,4 @@
-define(['q/q', 'jquery', 'purl/purl', 'OData', 'vendor/jaydata/jaydata'], function(Q, $, purl, OData) {
+define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], function(Q, $, purl, OData) {
 	//JayData need global OData
 	window.OData = OData;
 
