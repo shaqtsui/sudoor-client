@@ -6,7 +6,7 @@
 }
 .g-bs2-bg:before {
 	content: '';
-	background: url(../images/gplatform/bs-docs-masthead-pattern.png) repeat center center;
+	background: url(../images/bs-docs-masthead-pattern.png) repeat center center;
 	position: absolute;
 	top: 0;
 	right: 0;
