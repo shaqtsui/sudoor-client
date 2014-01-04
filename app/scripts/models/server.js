@@ -27,17 +27,28 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	server.getDb = function () {
 		if (!server._db) {
 			//Promise Fulfillment
+			var dbDeferred = Q.defer();
 			var servicePromise = $data.initService(server.config.serverURL + server.config.odataURI);
-			var dbCacheDeferred = Q.defer();
 			servicePromise.then(function (remoteDBContext, contextFactory, contexType) {
+				//Enhance remote DB before resolve, can not use Q(servicePromise).then() to enhance since 3 parameters required
 				var localDBContext = contextFactory({
 					name: 'local',
 					databaseName: 'GPlatformDB'
 				});
-				dbCacheDeferred.resolve(localDBContext);
+				remoteDBContext.cache = localDBContext;
+				var _promise = Q();
+				remoteDBContext.sequenceAdd = function(target, data){
+					var stage = function(){
+						target.add(data);
+						var defer = target.saveChanges();
+						return Q(defer);
+					}
+					_promise = _promise.then(stage);
+					return _promise;
+				};
+				dbDeferred.resolve(remoteDBContext);
 			});
-			server._db = Q(servicePromise);
-			server._db.cache = dbCacheDeferred.promise;
+			server._db = dbDeferred.promise;
 		}
 		return  server._db;
 	};
