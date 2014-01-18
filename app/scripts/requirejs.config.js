@@ -13,9 +13,10 @@ require.config({
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
 		//For named module
-		jquery: 'jquery/jquery',
-		datajs: 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
-		OData: 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1'
+		'jquery': 'jquery/jquery',
+		'datajs': 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
+		'OData': 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
+        'underscore.string' : 'underscore.string/lib/underscore.string'
 
 		//if self pkg not under bower_components, don't look for it under bower_components
 //		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
@@ -69,7 +70,6 @@ require.config({
 		},
 
 		'vendor/jaydata/jaydata': ['OData'],
-		'underscore.string/lib/underscore.string': ['underscore/underscore'],
 
 		//Angular
 		'angular/angular': ['jquery'],
