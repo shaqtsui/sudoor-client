@@ -46,7 +46,8 @@
     "requirejs-text": "~2.0.10",
     "reveal.js": "~2.6.1",
     "hammerjs": "~1.0.5",
-    "parsleyjs": "~1.2.2"
+    "parsleyjs": "~1.2.2",
+    "jquery-cookie": "~1.4.0"
   },
   "devDependencies": {},
   "resolutions": {
