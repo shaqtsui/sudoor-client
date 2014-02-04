@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 			        baseUrl: "<%= yeoman.app %>/bower_components",
                     mainConfigFile: '<%= yeoman.app %>/scripts/requirejs.config.js',
                     out: '<%= yeoman.app %>/scripts/requirejs.optimized.js',
-                    name:'client-infra/app/scripts/main'
+                    name:'client-infra/app/scripts/requirejs.config.cache'
                 }
             }
         },
