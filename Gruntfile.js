@@ -38,6 +38,7 @@ module.exports = function (grunt) {
 
 	                optimize:'none',
 			        baseUrl: "<%= yeoman.app %>/bower_components",
+                    //In child project this should changed to : '<%= yeoman.app %>/bower_components/client-infra/app/scripts/requirejs.config.js'. Child project's paths config can maintained in separated paths
                     mainConfigFile: '<%= yeoman.app %>/scripts/requirejs.config.js',
                     out: '<%= yeoman.app %>/scripts/requirejs.optimized.js',
                     name:'client-infra/app/scripts/requirejs.config.cache'
