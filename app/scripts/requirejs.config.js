@@ -69,7 +69,7 @@ require.config({
 			exports: [ "$.ui" ]
 		},
 
-		'vendor/jaydata/jaydata': ['OData'],
+        'client-infra/app/scripts/vendor/jaydata/jaydata': ['OData'],
 
 		//Angular
 		'angular/angular': ['jquery'],
