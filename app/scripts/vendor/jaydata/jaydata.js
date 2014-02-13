@@ -14295,7 +14295,7 @@ $data.Class.define('$data.StorageProviderLoaderBase', null, null, {
         $data.Trace.log(providerName + ' provider is ' + (supported ? '' : 'not') + ' supported');
         return supported;
     },
-    scriptLoadTimeout: { type: 'int', value: 1000 },
+    scriptLoadTimeout: { type: 'int', value: 60000 },
     scriptLoadInterval: { type: 'int', value: 50 },
     npmModules: {
         value: {

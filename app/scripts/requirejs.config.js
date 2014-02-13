@@ -10,7 +10,7 @@ require.config({
 	//baseUrl default to bower_components path
 	baseUrl: '../../bower_components',
 
-    waitSeconds: 20,
+    waitSeconds: 60,
 
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
