@@ -35,7 +35,8 @@
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") return mod(exports); // CommonJS
-  if (typeof define == "function" && define.amd_disableAMD) return define(["exports"], mod); // AMD
+    //Disable AMD for bug
+  //if (typeof define == "function" && define.amd) return define(["exports"], mod); // AMD
   mod(self.acorn || (self.acorn = {})); // Plain browser env
 })(function(exports) {
   "use strict";
