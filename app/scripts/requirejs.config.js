@@ -16,14 +16,14 @@ require.config({
 	paths: {
 		//For named module
 		'jquery': 'jquery/jquery',
-		'datajs': 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
-		'OData': 'client-infra/app/scripts/vendor/datajs/datajs-1.1.1',
+		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
+		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
         'underscore.string' : 'underscore.string/lib/underscore.string'
 
 		//if self pkg not under bower_components, don't look for it under bower_components
 //		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
 //		OData: '../scripts/vendor/datajs/datajs-1.1.1',
-//		'client-infra': '../..'
+//		'infra-client': '../..'
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
@@ -38,7 +38,7 @@ require.config({
 		}
 	},
 	shim: {
-		'swipe/swipe': ['jquery', 'css!client-infra/app/styles/vendor/swipe/swipe'],
+		'swipe/swipe': ['jquery', 'css!infra-client/app/styles/vendor/swipe/swipe'],
 		'jquery-ui/ui/jquery-ui': ['jquery', 'css!jquery-ui/themes/base/jquery-ui'],
 		'purl/purl': ['jquery'],
 		'bootstrap/dist/js/bootstrap': ['jquery', 'css!bootstrap/dist/css/bootstrap', 'css!bootstrap/dist/css/bootstrap-theme'],
@@ -71,7 +71,7 @@ require.config({
 			exports: [ "$.ui" ]
 		},
 
-        'client-infra/app/scripts/vendor/jaydata/jaydata': ['OData'],
+        'infra-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
 
 		//Angular
 		'angular/angular': ['jquery'],

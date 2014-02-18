@@ -1,5 +1,5 @@
 {
-  "name": "client-infra",
+  "name": "infra-client",
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
