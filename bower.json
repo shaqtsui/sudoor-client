@@ -45,6 +45,8 @@
   },
   "devDependencies": {},
   "resolutions": {
-    "angular": "1.2.13"
+    "angular": "1.2.13",
+    "jquery-ui": "~1.10.3",
+    "jquery": "~2.0.3"
   }
 }
