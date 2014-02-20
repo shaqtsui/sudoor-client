@@ -33,7 +33,7 @@
     "animate.css": "~3.0.0",
     "ngAnimate-animate.css": "~0.1.1",
     "foundation": "~5.0.3",
-    "jquery-mobile": "~1.4.0",
+    "jquery-mobile": "~1.4.1",
     "require-css": "~0.1.1",
     "swipe": "~2.0.0",
     "requirejs-plugins": "~1.0.2",

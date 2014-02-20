@@ -12,7 +12,8 @@ var angularCompConfig = {
 	html : 'angular_comp/**/*.html',
 	json : 'angular_comp/**/*.json',
 	all : 'angular_comp/**',
-	index : 'angular_comp/GPlatform/GPlatform.html'
+	index : 'index.html',
+	infra : 'bower_components/infra-client/app'
 };
 
 module.exports = function (grunt) {
@@ -191,7 +192,7 @@ module.exports = function (grunt) {
 			 files: [{
 				 expand: true,
 				 cwd: '<%= yeoman.app %>',
-				 src: angularCompConfig.js,
+                    src: angularCompConfig.infra + '/**/*.js',
 				 dest: '<%= yeoman.dist %>'
 			 }]
 		 }
@@ -224,7 +225,7 @@ module.exports = function (grunt) {
 			options: {
 				assetsDirs: ['<%= yeoman.dist %>']
 			},
-			html: ['<%= yeoman.dist %>/'+ angularCompConfig.html],
+            html: ['<%= yeoman.dist %>/'+ angularCompConfig.index],
 			css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
 		},
 		imagemin: {

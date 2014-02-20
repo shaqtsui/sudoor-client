@@ -16,14 +16,22 @@ require.config({
 	paths: {
 		//For named module
 		'jquery': 'jquery/jquery',
-		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
-		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
-        'underscore.string' : 'underscore.string/lib/underscore.string'
+		'underscore.string' : 'underscore.string/lib/underscore.string',
 
-		//if self pkg not under bower_components, don't look for it under bower_components
+		//for JQM bug
+		'jquery-ui/jquery.ui.widget':'jquery-mobile/external/jquery-ui/jquery.ui.widget',
+		'jquery-ui/jquery.ui.core':'jquery-mobile/external/jquery-ui/jquery.ui.core',
+		'jquery-ui/jquery.ui.tabs':'jquery-mobile/external/jquery-ui/jquery.ui.tabs',
+
+		//if self pkg under bower_components
+		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
+		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1'
+
+		//if self pkg NOT under bower_components, don't look for it under bower_components
+//		'infra-client': '../..',
 //		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
-//		OData: '../scripts/vendor/datajs/datajs-1.1.1',
-//		'infra-client': '../..'
+//		OData: '../scripts/vendor/datajs/datajs-1.1.1'
+
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
