@@ -385,7 +385,7 @@ module.exports = function (grunt) {
 		'modernizr',
 		'copy:dist',
 		'copy:fonts',
-		//'rev',
+		'rev',
 		'usemin'
 	]);
 
