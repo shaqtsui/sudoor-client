@@ -339,12 +339,16 @@ module.exports = function (grunt) {
 				src: 'fonts/*.*'
 			},
 			localDeploy: {
+				expand: true,
+				cwd: '<%= yeoman.dist %>',
 				dest: mainCfg.localServer,
-				src: '<%= yeoman.dist %>/**'
+				src: '**'
 			},
 			remoteDeploy: {
+				expand: true,
+				cwd: '<%= yeoman.dist %>',
 				dest: mainCfg.remoteServer,
-				src: '{,*/}*.css'
+				src: '**'
 			}
 		},
 		modernizr: {
