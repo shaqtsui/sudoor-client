@@ -82,14 +82,14 @@ module.exports = function (grunt) {
 		},
 		connect: {
 			options: {
-				port: 8080,
+				port: 80,
 				livereload: 35729,
 				// change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
 			},
 			livereload: {
 				options: {
-					open: 'http://localhost:8080',
+					open: 'http://localhost:80',
 					base: [
 						'.tmp',
 						'<%= yeoman.app %>'
@@ -107,7 +107,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				options: {
-					open: 'http://localhost:8080',
+					open: 'http://localhost:80',
 					base: '<%= yeoman.dist %>',
 					livereload: false
 				}
