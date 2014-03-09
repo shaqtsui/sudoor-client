@@ -45,10 +45,18 @@ module.exports = function (grunt) {
 
 					optimize: 'none',
 					baseUrl: "<%= yeoman.app %>/bower_components",
-					//In child project this should changed to : '<%= yeoman.app %>/bower_components/infra-client/app/scripts/requirejs.config.js'. Child project's paths config can maintained in separated paths
-					mainConfigFile: '<%= yeoman.app %>/scripts/requirejs.config.js',
 					out: '<%= yeoman.app %>/scripts/requirejs.optimized.js',
-					name: 'infra-client/app/scripts/requirejs.config.cache'
+					name: 'infra-client/app/scripts/requirejs.config.cache',
+
+					//TODO: In sub-project this should changed to : '<%= yeoman.app %>/bower_components/infra-client/app/scripts/requirejs.config.js'.
+					mainConfigFile: '<%= yeoman.app %>/scripts/requirejs.config.js',
+
+					//TODO: WARNING: This is project specific config, need to be replaced with sub-project config
+					paths: {
+						'infra-client': '../..',
+						datajs: '../scripts/vendor/datajs/datajs-1.1.1',
+						OData: '../scripts/vendor/datajs/datajs-1.1.1'
+					}
 				}
 			}
 		},

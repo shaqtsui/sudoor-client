@@ -26,12 +26,6 @@ require.config({
 		//if self pkg under bower_components
 		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
 		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1'
-
-		//if self pkg NOT under bower_components, don't look for it under bower_components
-//		'infra-client': '../..',
-//		datajs: '../scripts/vendor/datajs/datajs-1.1.1',
-//		OData: '../scripts/vendor/datajs/datajs-1.1.1'
-
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
