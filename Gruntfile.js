@@ -53,9 +53,9 @@ module.exports = function (grunt) {
 
 					//TODO: WARNING: This is project specific config, need to be replaced with sub-project config
 					paths: {
-						'infra-client': '../..',
-						datajs: '../scripts/vendor/datajs/datajs-1.1.1',
-						OData: '../scripts/vendor/datajs/datajs-1.1.1'
+						'infra-client': '..',
+						datajs: 'scripts/vendor/datajs/datajs-1.1.1',
+						OData: 'scripts/vendor/datajs/datajs-1.1.1'
 					}
 				}
 			}
