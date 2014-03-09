@@ -8,7 +8,7 @@
 require.config({
 
 	//baseUrl default to bower_components path
-	baseUrl: '../../bower_components',
+	baseUrl: 'bower_components',
 
     waitSeconds: 60,
 
