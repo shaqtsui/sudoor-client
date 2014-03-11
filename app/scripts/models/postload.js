@@ -10,6 +10,11 @@ define(function () {
 
 		//Enable bs popover
 		$("[data-toggle=popover]", ctx).popover();
+
+		//For pages loaded via ajax enable parsley validate, as parsey 2.0.0 only support normally loaded page auto bind
+		$('form[data-parsley-validate]', ctx).each(function(i, o){
+			$(o).parsley();
+		});
 	}
 	return postload;
 });
