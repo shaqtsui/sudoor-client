@@ -10,17 +10,16 @@ require.config({
 	//baseUrl default to bower_components path
 	baseUrl: 'bower_components',
 
-    waitSeconds: 60,
+	waitSeconds: 60,
 
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
 		//For named module
 		'jquery': 'jquery/jquery',
-		'underscore.string' : 'underscore.string/lib/underscore.string',
-
-		//if self pkg under bower_components
+		'underscore.string': 'underscore.string/lib/underscore.string',
 		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
-		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1'
+		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
+		validator: 'parsleyjs/dist/parsley'
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
@@ -35,40 +34,21 @@ require.config({
 		}
 	},
 	shim: {
+		'swiper/dist/idangerous.swiper': ['jquery', 'css!swiper/dist/idangerous.swiper'],
 		'swipe/swipe': ['jquery', 'css!infra-client/app/styles/vendor/swipe/swipe'],
 		'jquery-ui/ui/jquery-ui': ['jquery', 'css!jquery-ui/themes/base/jquery-ui'],
 		'purl/purl': ['jquery'],
 		'bootstrap/dist/js/bootstrap': ['jquery', 'css!bootstrap/dist/css/bootstrap', 'css!bootstrap/dist/css/bootstrap-theme'],
 		'simplecart-js/simpleCart': ['jquery'],
 		'foundation/js/foundation': ['jquery', 'modernizr/modernizr', 'css!foundation/css/foundation'],
-		'foundation/js/foundation.min': ['jquery', 'modernizr/modernizr', 'css!foundation/css/foundation'],
 
-		'parsleyjs/parsley': ['jquery'],
-		'parsleyjs/parsley.extend': ['parsleyjs/parsley'],
-		'parsleyjs/l10n/parsley.es': ['parsleyjs/parsley'],
-		'parsleyjs/i18n/messages.zh_cn': ['parsleyjs/parsley'],
+		'validator': ['jquery'],
 
 		'plupload/js/plupload.dev': ['plupload/js/moxie'],
 		'plupload/js/jquery.ui.plupload/jquery.ui.plupload': ['jquery-ui/ui/jquery-ui', 'plupload/js/plupload.dev', 'css!plupload/js/jquery.ui.plupload/css/jquery.ui.plupload'],
 		'plupload/js/i18n/zh_CN': ['plupload/js/jquery.ui.plupload/jquery.ui.plupload'],
 
-		//JQM
-		"jquery.hashchange": {
-			deps: [ "jquery" ]
-		},
-		"jquery.ui.widget": {
-			deps: [ "jquery" ],
-			exports: "$.widget"
-		},
-		"widgets/jquery.ui.tabs": {
-			deps: [ "jquery.ui.widget" ]
-		},
-		"widgets/jquery.ui.core": {
-			deps: [ "jquery" ],
-			exports: [ "$.ui" ]
-		},
-
-        'infra-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
+		'infra-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
 
 		//Angular
 		'angular/angular': ['jquery'],

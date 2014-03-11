@@ -1,4 +1,4 @@
-define(['jquery', 'parsleyjs/parsley'], function ($) {
+define(['jquery', 'validator'], function ($) {
 	window.ParsleyConfig = window.ParsleyConfig || {};
 	window.ParsleyConfig = $.extend(true, {}, window.ParsleyConfig, {
 		validators: {
