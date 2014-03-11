@@ -18,11 +18,6 @@ require.config({
 		'jquery': 'jquery/jquery',
 		'underscore.string' : 'underscore.string/lib/underscore.string',
 
-		//for JQM bug
-		'jquery-ui/jquery.ui.widget':'jquery-mobile/external/jquery-ui/jquery.ui.widget',
-		'jquery-ui/jquery.ui.core':'jquery-mobile/external/jquery-ui/jquery.ui.core',
-		'jquery-ui/jquery.ui.tabs':'jquery-mobile/external/jquery-ui/jquery.ui.tabs',
-
 		//if self pkg under bower_components
 		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
 		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1'
@@ -86,11 +81,6 @@ require.config({
 		'angular-translate/angular-translate': ['angular/angular'],
 		'angular-translate-loader-static-files/angular-translate-loader-static-files': ['angular-translate/angular-translate'],
 		'angular-xeditable/dist/js/xeditable': ['angular/angular', 'css!angular-xeditable/dist/css/xeditable'],
-		'ngAnimate-animate.css/animate': ['angular-animate/angular-animate'],
-
-		//works with angular 1.1.5 for $AnimateProvider issue
-		'angular-jqm/components/angular/angular-mobile': ['angular-animate/angular-animate'],
-		'angular-jqm/dist/angular-jqm': ['angular/angular', 'angular-jqm/components/angular/angular-mobile', 'css!jquery-mobile/css/themes/default/jquery.mobile']
-
+		'ngAnimate-animate.css/animate': ['angular-animate/angular-animate']
 	}
 });
