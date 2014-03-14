@@ -55,6 +55,8 @@ module.exports = function (grunt) {
 					optimize: 'none',
 					baseUrl: "<%= config.app %>/bower_components",
 					out: '<%= config.app %>/scripts/requirejs.optimized.js',
+
+					//TODO: WARNING: This is project specific config, need to be replaced with sub-project config
 					name: 'infra-client/app/scripts/requirejs.config.cache',
 
 					//TODO: In sub-project this should changed to : '<%= config.app %>/bower_components/infra-client/app/scripts/requirejs.config.js'.
