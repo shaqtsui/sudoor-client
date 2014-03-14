@@ -27,19 +27,11 @@
             }
         });
     </script>
-
-    <script type="text/javascript" src="scripts/requirejs.optimized.js"></script>
     <!-- endbuild -->
 
-
-
-    <!-- build:css styles/vendor.css -->
-
-    <!-- endbuild -->
-
-    <!-- build:css({app,.tmp}) styles/main.css -->
-    <link type="text/css" href="scripts/requirejs.optimized.css" rel="stylesheet">
-    <!-- endbuild -->
+    <!-- Refer to Output of Requirejs Build/Optimize Flow (Go through requirejs optimize flow, NO need to go through webapp-generator build flow) -->
+    <script type="text/javascript" src="requirejs.optimized.js"></script>
+    <link type="text/css" href="requirejs.optimized.css" rel="stylesheet">
 
 </head>
 <body class="g-bs2-bg">
