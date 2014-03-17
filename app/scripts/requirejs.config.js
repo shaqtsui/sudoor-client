@@ -12,6 +12,9 @@ require.config({
 
 	waitSeconds: 60,
 
+	//For cache bust
+	//urlArgs: "bust=" +  (new Date()).getTime(),
+
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
 		//For named module

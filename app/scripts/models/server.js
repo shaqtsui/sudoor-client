@@ -16,7 +16,10 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 		logoutURI: '/j_spring_security_logout',
 		restURI: '/data/rest',
 		authenticationURI: '/data/rest/SpringSecurity/Authentication',
-		fileUploadURL: '/data/rest/tools/fileupload/File'
+		fileUploadURL: '/data/rest/tools/fileupload/File',
+
+		//Some mobile browser don't have local DB, so need to give option to disable cache
+		enableCache: true
 	};
 
 	server._db = null;
@@ -25,32 +28,57 @@ define(['q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata'], fun
 	 server.getDb() return DB promise with cache
 	 */
 	server.getDb = function () {
-		if (!server._db) {
-			//Promise Fulfillment
-			var dbDeferred = Q.defer();
-			var servicePromise = $data.initService(server.config.serverURL + server.config.odataURI);
-			servicePromise.then(function (remoteDBContext, contextFactory, contexType) {
-				//Enhance remote DB before resolve, can not use Q(servicePromise).then() to enhance since 3 parameters required
-				var localDBContext = contextFactory({
-					name: 'local',
-					databaseName: 'GPlatformDB'
-				});
-				remoteDBContext.cache = localDBContext;
-				var _promise = Q();
-				remoteDBContext.sequenceAdd = function(target, data){
-					var stage = function(){
-						target.add(data);
-						var defer = target.saveChanges();
-						return Q(defer);
+		try {
+			if (!server._db) {
+				//Create Promise
+				var dbDeferred = Q.defer();
+				server._db = dbDeferred.promise;
+
+				var remoteDBContext = null;
+				var localDBContext = null;
+
+				//Promise Fulfillment
+				if (typeof BizData != 'undefined') {
+					//Static context init, need to generate js first, quicker than dyna approach
+					remoteDBContext = new BizData.BizDataContainer({
+						name: 'oData',
+						oDataServiceHost: server.config.serverURL + server.config.odataURI
+					});
+
+					if (server.config.enableCache) {
+						localDBContext = new BizData.BizDataContainer({
+							name: 'local',
+							databaseName: 'GPlatformDB'
+						});
+						remoteDBContext.cache = localDBContext;
 					}
-					_promise = _promise.then(stage);
-					return _promise;
-				};
-				dbDeferred.resolve(remoteDBContext);
-			});
-			server._db = dbDeferred.promise;
+
+					remoteDBContext.onReady(function () {
+						dbDeferred.resolve(remoteDBContext);
+					});
+
+				} else {
+					//Dyna context init
+					var servicePromise = $data.initService(server.config.serverURL + server.config.odataURI);
+					servicePromise.then(function (remoteContext, contextFactory, contexType) {
+						remoteDBContext = remoteContext;
+
+						if (server.config.enableCache) {
+							localDBContext = contextFactory({
+								name: 'local',
+								databaseName: 'GPlatformDB'
+							});
+							remoteDBContext.cache = localDBContext;
+						}
+
+						dbDeferred.resolve(remoteDBContext);
+					});
+				}
+			}
+			return  server._db;
+		} catch (e) {
+			console.error(e);
 		}
-		return  server._db;
 	};
 
 	server._session = null;
