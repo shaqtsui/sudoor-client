@@ -120,7 +120,7 @@ module.exports = function (grunt) {
 				port: 80,
 				livereload: 35729,
 				// Change this to '0.0.0.0' to access the server from outside
-				hostname: 'localhost'
+				hostname: '0.0.0.0'
 			},
 			livereload: {
 				options: {
@@ -393,12 +393,12 @@ module.exports = function (grunt) {
 				dest: '.tmp/styles/',
 				src: '{,*/}*.css'
 			},
-			fonts: {
+			indirection: {
 				expand: true,
 				dot: true,
-				cwd: '<%= config.app %>/bower_components/font-awesome',
-				dest: '<%= config.dist %>/styles',
-				src: 'fonts/*.*'
+				cwd: '<%= config.app %>',
+				dest: '<%= config.dist %>',
+				src: ['bower_components/**/*.{gif,jpeg,jpg,png,woff,ttf}']
 			},
 			angularComp: {
 				files: [
@@ -520,7 +520,7 @@ module.exports = function (grunt) {
 		'uglify',
 		//'modernizr',
 		'copy:dist',
-		'copy:fonts',
+		'copy:indirection',
 		'copy:angularComp',
 		'rev',
 		'usemin',
