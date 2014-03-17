@@ -15,7 +15,7 @@ require.config({
 	//only for setting up root paths for module IDs, the module not changed
 	paths: {
 		//For named module
-		'jquery': 'jquery/jquery',
+		'jquery': 'jquery/dist/jquery',
 		'underscore.string': 'underscore.string/lib/underscore.string',
 		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
 		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
