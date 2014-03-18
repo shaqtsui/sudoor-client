@@ -14392,13 +14392,7 @@ $data.Class.define('$data.StorageProviderLoaderBase', null, null, {
             var url = this.getUrl(mappedName);
             $data.Trace.log(currentProvider + ' provider from URL: ' + url);
 
-            var loader = this.loadScript;
-            if (document && document.createElement) {
-                $data.Trace.log('document and document.createElement detected, using script element loader method');
-                loader = this.loadScriptElement;
-            }
-
-            loader.call(this, url, currentProvider, function (successful) {
+	        var requestCallback = function (successful) {
                 var provider = $data.RegisteredStorageProviders[currentProvider];
                 if (successful && provider) {
                     $data.Trace.log(currentProvider + ' provider successfully registered');
@@ -14410,7 +14404,23 @@ $data.Class.define('$data.StorageProviderLoaderBase', null, null, {
                     $data.Trace.log(currentProvider + ' provider failed to load');
                     callback.error();
                 }
-            });
+	        }
+
+	        if ( typeof define === "function" && define.amd ) {
+		        require(['infra-client/app/scripts/vendor/jaydata/jaydataproviders/' + mappedName + 'Provider'], function () {
+			        requestCallback(true);
+		        }, function(){
+			        requestCallback(false);
+	            });
+	        }else{
+		        var loader = this.loadScript;
+		        if (document && document.createElement) {
+			        $data.Trace.log('document and document.createElement detected, using script element loader method');
+			        loader = this.loadScriptElement;
+		        }
+
+		        loader.call(this, url, currentProvider, requestCallback);
+	        }
         }
     },
     getUrl: function (providerName) {
