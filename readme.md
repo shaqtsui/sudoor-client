@@ -271,7 +271,8 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 	
 ### 引入client-infra:
 
-修改 `bower.json`  在dependencies里加入 `"infra-client": "*"`
+1. 修改 `bower.json`  在dependencies里加入 `"infra-client": "*"`
+2. 运行： `bower install`
 
 
 ### 使用数据通信API:
@@ -315,6 +316,13 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 
 	grunt dist
 
+
+### 示例项目：
+
+网站：[GPlatform]
+
+代码：[GnGClient]
+
 [InfraSketch]: readme/InfraSketch.png
 [BowerPKG]: readme/BowerPKG.png
 [DeployBeforeChangeB]: readme/DeployBeforeChangeB.png
@@ -323,3 +331,5 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 [DeployAfterChangeC]: readme/DeployAfterChangeC.png
 [RequireJS]: http://requirejs.org
 [AngularJS]: http://angularjs.org
+[GPlatform]: http://www.gplatform.net
+[GnGClient]: https://github.com/xfcjscn/gng-client
