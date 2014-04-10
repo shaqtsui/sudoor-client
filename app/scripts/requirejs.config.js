@@ -54,7 +54,7 @@ require.config({
 		'infra-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
 
 		//Angular
-		'angular/angular': ['jquery'],
+		'angular/angular': ['jquery', 'raf/rAF'],
 		'angular-route/angular-route': ['angular/angular'],
 		'angular-resource/angular-resource': ['angular/angular'],
 		'angular-animate/angular-animate': ['angular/angular'],
