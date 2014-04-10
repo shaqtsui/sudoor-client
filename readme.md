@@ -4,23 +4,23 @@
 
 ## 为什么infra-client
 
-### 我们的问题
-软件的核心价值在于它可以帮助人们解决现实的问题。对于应用软件而言，它主要的价值在于满足业务须求。
+### 现有的问题
+软件的核心价值在于它可以帮助人们解决现实的问题。对于应用软件而言，它主要的价值在于满足业务需求。
 换而言之作为一个应用开发者我们就是要写一些应用相关的代码来创造价值，这也是应用开发者最终的目标。
-但是如果你是一个程序员，有一定的工作经验你就会发现现实不是我们所想象的好你简单和容易。至今没有一门语言或者是框架可以直接运行业务代码不须要一行非业务相关的
-代码。这样的一门语言或框架是众多有志程序员的一个梦想。为了这一梦想所以出现的众多高级语言和框架从一定程度上部分解决这一问题。
+但是如果你是一个程序员，有着一定的工作经验，你就会发现现实并不是我们所想象的那么简单。至今没有一门语言或者是框架可以直接运行业务代码不需要一行非业务相关的
+代码。这样的一门语言或框架是众多有志程序员的一个不可企及的梦想。正是为了这一梦想所以出现的众多高级语言和框架从一定程度上部分解决了这一问题。
 
 
-### 特定问题的解决方案
-如web中间件让web开发者从痛苦的通传信层解放了出来，一个web应用一定依赖客户端和服务端的通信，但是我们只须要用现成的web中间件，我们就不用写任何一行通信的代码。再如*DBC, 让我们
-不用关心怎么连到数据库。再如JMS让我们不用关心怎么把一个消息发到其它地方。有很多的“再如”已经存在在的这个软件世界，并且会越来越多。
+### 特定问题特定解决方案
+所有的解决方案都是为了特定的问题。如web中间件让web开发者从痛苦的通传信层解放出来，一个web应用一定依赖客户端和服务端的通信，但是我们只须要用现成的web中间件，我们就不用写任何一行通信的代码。
+再如JDBC, 让我们不用关心怎么连接数据库。再如JMS让我们不用关心怎么把一个消息发到其它地方。有很多的“再如”已经存在这个软件世界，并且会越来越多。
 
 
 ### infra-client 一切为了轻
-infra-client 也是一个解决方案。既然是一个解决方案，一定也它要解决的问题，infra-client要解决是轻应用中“重”的问题。
-历史总是在循环中前进。随着web的发展，为了高响应和更好的客户体验，时间宝贵的用户们不愿意看着整个页面的提交而无所事事的等待，用户想要在提交东西的时候
-还可以看看页面的其它内容或做其它的操作。作为网站的作者也不希望为了页面的一小部分的更新而内刷新整个页面，因为这种不合理对于追求完美的程序员们也是不可
-接受的。为了这些种种原因客户端又从“瘦”走向了“胖”。infra-client希望这样的客户端“胖”而不“重”。
+infra-client 也是一个解决方案。既然是解决方案，一定也有它要解决的问题，简单而言infra-client要解决的是轻应用中“重”的问题。
+历史总是在循环中前进。随着web的发展，为了高响应和更好的用户体验，用户想要在提交东西的时候还可以看看页面的其它内容或做其它的操作。
+作为网站的作者也不希望为了页面的一小部分的更新而刷新整个页面，因为这种不合理对于追求完美的程序员们是不可接受的。
+为了这些种种原因客户端又从“瘦”走向了“胖”。infra-client希望这样的客户端“胖”而不“重”。
 
 
 
@@ -32,6 +32,7 @@ infra-client 是一个前端的集成开发流程和MVC框架的平台。在项�
 infra-client 框架在web系统中的位置（浅蓝色部分）：
 
 ![InfraSketch][InfraSketch]
+
 
 ### infra-client组成
 
@@ -49,15 +50,6 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 	  "version": "0.1.0",
 	  "dependencies": {
 	    "infra-client": "*"
-	  },
-	  "devDependencies": {},
-	  "resolutions": {
-	    "angular": "1.2.14",
-	    "angular-animate": "1.2.14",
-	    "jquery-ui": "~1.10.3",
-	    "animate.css": "~3.1.0",
-	    "outlayer": ">=1.1.2 <2.0",
-	    "jquery": "~2.1.0"
 	  }
 	}
 
@@ -116,7 +108,6 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 	    <script type="text/javascript" src="angular_comp/RegisterForm/RegisterFormCtrl.js"></script>
 	    <script type="text/javascript" src="angular_comp/Setting/SettingCtrl.js"></script>
 	    <!-- endbuild -->
-	
 	</head>
 	<body class="g-bs2-bg">
 	<div ng-include="'angular_comp/Menu/Menu.html'"></div>
@@ -151,9 +142,6 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 在这个例子当中仔细的人会发现优化过后的JS和CSS文件名变成了 `${hash} + name`， 正是这一优化引入了Cache Bust。
 
 
-
-
-
 初始JS片段:
 
 	'use strict';
@@ -179,6 +167,7 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 优化后的JS大小为原始的一半 (下面的例子：345 bytes vs  162 bytes)
 CSS和JS类似乎，在此不再举例。
 
+
 #### 部署测试器
 自动部署修改的文件到服务器并刷新页面（你不用担心你的F5不是钛合金的了）。
 
@@ -186,7 +175,6 @@ CSS和JS类似乎，在此不再举例。
 
 ![DeployBeforeChangeC][DeployBeforeChangeC]
 ![DeployBeforeChangeB][DeployBeforeChangeB]
-
 
 
 修改文件并保存：
@@ -293,18 +281,27 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 		var deferred = instance.Items.saveChanges();
 	});
 	
+更多的API请参考[JayData]
 	
 ### 注入第三方库:
 
 	require(['xxxxxxxxxx'], function () { /* any code  here */});
 	
 将	`xxxxxxxxxx`替换成库名，你可以在文件：`infra-client/app/scripts/requirejs.config.js` 里查看支持的库。
-当然你也可以调用 `require.config()` 注册你自己的库。详细的使用请参考 [RequireJS]
+
+如果你要加入的库不存在于前面的配置文件中，说明这个库没有被集成到infra-client里。你可以通过以下步骤加入：
+
+1. 修改你的bower.json，加入你要的库
+2. 运行 `bower install` 让 bower 下载相关的库和依赖的库
+3. 调用 `require.config()` 注册下载的库。详细的使用请参考 [RequireJS]
+4. 在程序中用下面的代码注入库：
+
+		require(['xxxxxxxxxx'], function () { /* any code  here */});
 
 
 ### 模板语法和MVC的使用:
 
-模板和MVC在client-infra里没有任何十月封装，请真接参考[AngularJS]
+模板和MVC在client-infra里没有任何的封装，请真接参考[AngularJS]
 
 
 ### 部署并起动服务器(命令):
@@ -333,3 +330,4 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 [AngularJS]: http://angularjs.org
 [GPlatform]: http://www.gplatform.net
 [GnGClient]: https://github.com/xfcjscn/gng-client
+[JayData]: http://jaydata.org
