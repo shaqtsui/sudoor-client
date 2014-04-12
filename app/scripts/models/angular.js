@@ -1,3 +1,0 @@
-define(['angular/angular', 'angular-route/angular-route', 'angular-resource/angular-resource', 'angular-animate/angular-animate', 'angular-loading-bar/src/loading-bar', 'angular-http-auth/src/http-auth-interceptor', 'nginfinitescroll/build/ng-infinite-scroll', 'angular-translate/angular-translate', 'angular-translate-loader-static-files/angular-translate-loader-static-files', 'angular-xeditable/dist/js/xeditable', 'ngAnimate-animate.css/animate'], function() {
-	return angular;
-});
