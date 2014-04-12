@@ -68,10 +68,3 @@ require.config({
 		'ngAnimate-animate.css/animate': ['angular-animate/angular-animate']
 	}
 });
-
-//onResourceLoad implement
-require.onResourceLoad = function(context, map, depArray){
-	if(console && console.log){
-		console.log('loaded: ' + map.name + ' at ' + map.url);
-	}
-};
