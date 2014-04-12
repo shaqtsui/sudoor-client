@@ -1,4 +1,4 @@
-define([ 'extendFunction', 'angular/angular' ], function(extendFunction) {
+define([ 'extendFunction', './logging', 'angular/angular' ], function(extendFunction, log) {
 	angular.module('angular-requirejs', []).run(function($rootScope) {
 		// Extend require to call enhanced callback
 		extendFunction('require', function(args, originalFunction, dontCallOriginal) {
@@ -10,11 +10,11 @@ define([ 'extendFunction', 'angular/angular' ], function(extendFunction) {
 					b.apply(null, a)
 					$rootScope.$apply();
 				});
-				console && console.log('Callback for: [' + dep + '] extended to call $rootScope.$apply()');
+				log.debug('Callback for: [' + dep + '] extended to call $rootScope.$apply()');
 			}
 			originalFunction.call(window, dep, eReqCB);
 		});
 
-		console && console.log('Extended require to call enhanced callback');
+		log.debug('Extended require to call enhanced callback');
 	});
 });
