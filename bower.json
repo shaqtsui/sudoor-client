@@ -43,7 +43,8 @@
     "jquery-cookie": "~1.4.0",
     "swiper": "~2.5.0",
     "raf": "https://gist.github.com/1579671.git",
-    "blockui": "*"
+    "blockui": "*",
+    "extendFunction": "*"
   },
   "devDependencies": {},
   "resolutions": {

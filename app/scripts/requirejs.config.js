@@ -22,7 +22,8 @@ require.config({
 		'underscore.string': 'underscore.string/lib/underscore.string',
 		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
 		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
-		validator: 'parsleyjs/dist/parsley'
+		validator: 'parsleyjs/dist/parsley',
+		extendFunction: 'extendFunction/extendFunction'
 	},
 	map: {
 		//Map one module to another, so that relative module ID will resolve base on mapped module
