@@ -1,4 +1,4 @@
-define([ 'q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata' ], function(Q, $, purl, OData) {
+define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/jaydata' ], function(Q, $, purl, OData, log) {
 	// JayData need global OData
 	window.OData = OData;
 
@@ -98,6 +98,7 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata' ], f
 					}
 					remoteDBContext.onReady(function() {
 						attachEventListener(remoteDBContext, server.config.dbListeners);
+						log.debug('DB Initialized');
 						dbDeferred.resolve(remoteDBContext);
 					});
 				} else {
@@ -109,13 +110,14 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', '../vendor/jaydata/jaydata' ], f
 							remoteDBContext.cache = createLocalDB(contextFactory);
 						}
 						attachEventListener(remoteDBContext, server.config.dbListeners);
+						log.debug('DB Initialized');
 						dbDeferred.resolve(remoteDBContext);
 					});
 				}
 			}
 			return server._db;
 		} catch (e) {
-			console.error(e);
+			log.error(e);
 		}
 	};
 
