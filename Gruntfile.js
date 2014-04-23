@@ -44,6 +44,7 @@ module.exports = function(grunt) {
 
 	    release : {
 		    options : {
+		        file : 'bower.json',
 		        npm : false
 		    }
 	    },
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
 			        name : 'infra-client/app/scripts/requirejs.config.cache',
 
 			        // TODO: In sub-project this should changed to : '<%= config.app
-					// %>/bower_components/infra-client/app/scripts/requirejs.config.js'.
+			        // %>/bower_components/infra-client/app/scripts/requirejs.config.js'.
 			        mainConfigFile : '<%= config.app %>/scripts/requirejs.config.js',
 
 			        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
