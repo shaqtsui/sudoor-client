@@ -1,6 +1,6 @@
 {
   "name": "infra-client",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "plupload": "~2.1.1",
     "jquery": "~2.1.0",
