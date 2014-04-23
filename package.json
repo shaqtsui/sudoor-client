@@ -1,6 +1,6 @@
 {
   "name": "infra-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {},
   "devDependencies": {
     "grunt-cli": "~0.1.13",
