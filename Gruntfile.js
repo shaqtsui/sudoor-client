@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		        all : 'angular_comp/**'
 		    }
 	    },
-	    infra : 'bower_components/infra-client/app',
+	    sudoor : 'bower_components/sudoor-client/app',
 	    index : 'index.html',
 	    localServer : 'c:/apps/Apache24/htdocs',
 	    remoteServer : 'c:/apps/Apache24/htdocs',
@@ -67,15 +67,15 @@ module.exports = function(grunt) {
 			        out : '<%= config.app %>/' + mainCfg.requirejs.jsout,
 
 			        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
-			        name : 'infra-client/app/scripts/requirejs.config.cache',
+			        name : 'sudoor-client/app/scripts/requirejs.config.cache',
 
 			        // TODO: In sub-project this should changed to : '<%= config.app
-			        // %>/bower_components/infra-client/app/scripts/requirejs.config.js'.
+			        // %>/bower_components/sudoor-client/app/scripts/requirejs.config.js'.
 			        mainConfigFile : '<%= config.app %>/scripts/requirejs.config.js',
 
 			        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
 			        paths : {
-			            'infra-client' : '../..',
+			            'sudoor-client' : '../..',
 			            datajs : '../scripts/vendor/datajs/datajs-1.1.1',
 			            OData : '../scripts/vendor/datajs/datajs-1.1.1'
 			        }
@@ -311,7 +311,7 @@ module.exports = function(grunt) {
 			    files : [ {
 			        expand : true,
 			        cwd : '<%= config.app %>',
-			        src : mainCfg.infra + '/**/*.js',
+			        src : mainCfg.sudoor + '/**/*.js',
 			        dest : '<%= config.dist %>'
 			    } ]
 		    }

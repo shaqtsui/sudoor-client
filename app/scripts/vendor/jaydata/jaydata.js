@@ -14407,7 +14407,7 @@ $data.Class.define('$data.StorageProviderLoaderBase', null, null, {
 	        }
 
 	        if ( typeof define === "function" && define.amd ) {
-		        require(['infra-client/app/scripts/vendor/jaydata/jaydataproviders/' + mappedName + 'Provider'], function () {
+		        require(['sudoor-client/app/scripts/vendor/jaydata/jaydataproviders/' + mappedName + 'Provider'], function () {
 			        requestCallback(true);
 		        }, function(){
 			        requestCallback(false);

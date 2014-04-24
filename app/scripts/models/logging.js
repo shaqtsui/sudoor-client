@@ -1,4 +1,4 @@
-define([ 'infra-client/app/scripts/vendor/log4javascript/log4javascript' ], function() {
+define([ 'sudoor-client/app/scripts/vendor/log4javascript/log4javascript' ], function() {
 	//Can enable logging via script injection
 	log4javascript.setEnabled(false);
 	

@@ -1,8 +1,8 @@
-# Infra project used to be a base for application
+# Sudoor project used to be a base for application
 
 
 
-## 为什么infra-client
+## 为什么sudoor-client
 
 ### 现有的问题
 软件的核心价值在于它可以帮助人们解决现实的问题。对于应用软件而言，它主要的价值在于满足业务需求。
@@ -16,25 +16,25 @@
 再如JDBC, 让我们不用关心怎么连接数据库。再如JMS让我们不用关心怎么把一个消息发到其它地方。有很多的“再如”已经存在这个软件世界，并且会越来越多。
 
 
-### infra-client 一切为了轻
-infra-client 也是一个解决方案。既然是解决方案，一定也有它要解决的问题，简单而言infra-client要解决的是轻应用中“重”的问题。
+### sudoor-client 一切为了轻
+sudoor-client 也是一个解决方案。既然是解决方案，一定也有它要解决的问题，简单而言sudoor-client要解决的是轻应用中“重”的问题。
 历史总是在循环中前进。随着web的发展，为了高响应和更好的用户体验，用户想要在提交东西的时候还可以看看页面的其它内容或做其它的操作。
 作为网站的作者也不希望为了页面的一小部分的更新而刷新整个页面，因为这种不合理对于追求完美的程序员们是不可接受的。
-为了这些种种原因客户端又从“瘦”走向了“胖”。infra-client希望这样的客户端“胖”而不“重”。
+为了这些种种原因客户端又从“瘦”走向了“胖”。sudoor-client希望这样的客户端“胖”而不“重”。
 
 
 
-## 什么是infra-client
+## 什么是sudoor-client
 
-infra-client 是一个前端的集成开发流程和MVC框架的平台。在项目管理上你可以忽略复杂的开发环境搭建，包管理，项目构建，优化，部署，测试。
+sudoor-client 是一个前端的集成开发流程和MVC框架的平台。在项目管理上你可以忽略复杂的开发环境搭建，包管理，项目构建，优化，部署，测试。
 开发上你可以更好的分离前端的代码，省略复杂的DOM刷新代码，后台通信代码。
 
-infra-client 框架在web系统中的位置（浅蓝色部分）：
+sudoor-client 框架在web系统中的位置（浅蓝色部分）：
 
 ![InfraSketch][InfraSketch]
 
 
-### infra-client组成
+### sudoor-client组成
 
 
 #### web 服务器
@@ -49,7 +49,7 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 	  "name": "gng-client",
 	  "version": "0.1.0",
 	  "dependencies": {
-	    "infra-client": "*"
+	    "sudoor-client": "*"
 	  }
 	}
 
@@ -84,7 +84,7 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 	
 		<!-- build:js({app,.tmp}) scripts/require.js -->
 	    <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
-	    <script type="text/javascript" src="bower_components/infra-client/app/scripts/requirejs.config.js"></script>
+	    <script type="text/javascript" src="bower_components/sudoor-client/app/scripts/requirejs.config.js"></script>
 	    <script type="text/javascript" src="scripts/requirejs.config.js"></script>
 		<!-- endbuild -->
 	
@@ -148,7 +148,7 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 	function AccountInfoCtrl($scope, $http) {
 	
 		$scope.logout = function() {
-			require(['infra-client/app/scripts/models/server'], function(server){
+			require(['sudoor-client/app/scripts/models/server'], function(server){
 				var promise = server.logout();
 	
 				promise.then(function(data) {
@@ -162,7 +162,7 @@ infra-client 框架在web系统中的位置（浅蓝色部分）：
 
 优化后的JS片段:
 
-	function AccountInfoCtrl(a){a.logout=function(){require(["infra-client/app/scripts/models/server"],function(b){var c=b.logout();c.then(function(){a.$apply()})})}}
+	function AccountInfoCtrl(a){a.logout=function(){require(["sudoor-client/app/scripts/models/server"],function(b){var c=b.logout();c.then(function(){a.$apply()})})}}
 
 优化后的JS大小为原始的一半 (下面的例子：345 bytes vs  162 bytes)
 CSS和JS类似乎，在此不再举例。
@@ -218,7 +218,7 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 模型：
 
 	function AccountInfoCtrl($scope) {
-		require(['infra-client/app/scripts/models/server'], function(server) {
+		require(['sudoor-client/app/scripts/models/server'], function(server) {
 			server.config.serverURL = 'http://localhost:8080/gng-server-1.0';
 			//server.config.serverURL = 'http://192.168.2.5:8080/gng-server-1.0';
 			//server.config.serverURL = 'http://server.gplatform.net/gng-server-1.0';
@@ -242,7 +242,7 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 
 
 
-## 使用infra-client
+## 使用sudoor-client
 
 ### 必要软件：
 
@@ -257,15 +257,15 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 	npm install generator-webapp -g
 	
 	
-### 引入client-infra:
+### 引入sudoor-client:
 
-1. 修改 `bower.json`  在dependencies里加入 `"infra-client": "*"`
+1. 修改 `bower.json`  在dependencies里加入 `"sudoor-client": "*"`
 2. 运行： `bower install`
 
 
 ### 使用数据通信API:
 
-	require(['infra-client/app/scripts/models/server'], function (server) { /* use server to query & store data */});
+	require(['sudoor-client/app/scripts/models/server'], function (server) { /* use server to query & store data */});
 	
 查询数据的代码：
 
@@ -287,9 +287,9 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 
 	require(['xxxxxxxxxx'], function () { /* any code  here */});
 	
-将	`xxxxxxxxxx`替换成库名，你可以在文件：`infra-client/app/scripts/requirejs.config.js` 里查看支持的库。
+将	`xxxxxxxxxx`替换成库名，你可以在文件：`sudoor-client/app/scripts/requirejs.config.js` 里查看支持的库。
 
-如果你要加入的库不存在于前面的配置文件中，说明这个库没有被集成到infra-client里。你可以通过以下步骤加入：
+如果你要加入的库不存在于前面的配置文件中，说明这个库没有被集成到sudoor-client里。你可以通过以下步骤加入：
 
 1. 修改你的bower.json，加入你要的库
 2. 运行 `bower install` 让 bower 下载相关的库和依赖的库
@@ -301,7 +301,7 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 
 ### 模板语法和MVC的使用:
 
-模板和MVC在client-infra里没有任何的封装，请真接参考[AngularJS]
+模板和MVC在sudoor-client里没有任何的封装，请真接参考[AngularJS]
 
 
 ### 部署并起动服务器(命令):

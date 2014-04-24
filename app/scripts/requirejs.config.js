@@ -20,8 +20,8 @@ require.config({
 		//For named module
 		'jquery': 'jquery/dist/jquery',
 		'underscore.string': 'underscore.string/lib/underscore.string',
-		'datajs': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
-		'OData': 'infra-client/app/scripts/vendor/datajs/datajs-1.1.1',
+		'datajs': 'sudoor-client/app/scripts/vendor/datajs/datajs-1.1.1',
+		'OData': 'sudoor-client/app/scripts/vendor/datajs/datajs-1.1.1',
 		validator: 'parsleyjs/dist/parsley',
 		extendFunction: 'extendFunction/extendFunction'
 	},
@@ -39,7 +39,7 @@ require.config({
 	},
 	shim: {
 		'swiper/dist/idangerous.swiper': ['jquery', 'css!swiper/dist/idangerous.swiper'],
-		'swipe/swipe': ['jquery', 'css!infra-client/app/styles/vendor/swipe/swipe'],
+		'swipe/swipe': ['jquery', 'css!sudoor-client/app/styles/vendor/swipe/swipe'],
 		'jquery-ui/ui/jquery-ui': ['jquery', 'css!jquery-ui/themes/base/jquery-ui'],
 		'purl/purl': ['jquery'],
 		'bootstrap/dist/js/bootstrap': ['jquery', 'css!bootstrap/dist/css/bootstrap', 'css!bootstrap/dist/css/bootstrap-theme'],
@@ -52,7 +52,7 @@ require.config({
 		'plupload/js/jquery.ui.plupload/jquery.ui.plupload': ['jquery-ui/ui/jquery-ui', 'plupload/js/plupload.dev', 'css!plupload/js/jquery.ui.plupload/css/jquery.ui.plupload'],
 		'plupload/js/i18n/zh_CN': ['plupload/js/jquery.ui.plupload/jquery.ui.plupload'],
 
-		'infra-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
+		'sudoor-client/app/scripts/vendor/jaydata/jaydata': ['OData'],
 
 		//Angular
 		'angular/angular': ['jquery', 'raf/rAF'],
