@@ -1,6 +1,6 @@
 /*global describe, it */
 'use strict';
-require([ 'sudoor-client/app/scripts/models/server' ], function(server) {
+define([ 'sudoor-client/app/scripts/models/server' ], function(server) {
 	describe('server', function() {
 		describe('#login()', function() {
 			it('should run here few assertions', function() {
@@ -13,6 +13,4 @@ require([ 'sudoor-client/app/scripts/models/server' ], function(server) {
 			});
 		});
 	});
-
-	mocha.run();
 });
