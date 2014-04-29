@@ -11,7 +11,9 @@
 	<script>
 		mocha.setup('bdd');
         mocha.setup({
-	        ignoreLeaks : true
+            ignoreLeaks : true,
+            timeout : 10000,
+            bail : false
         });
 	</script>
 	<!-- assertion framework -->

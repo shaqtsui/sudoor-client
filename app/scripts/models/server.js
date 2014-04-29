@@ -9,7 +9,7 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 	 * server.config maintain the config data
 	 */
 	server.config = {
-	    serverURL : clientURL.attr('protocol') + '://' + clientURL.attr('host').replace("www.", "server.") + ':80/gng-server-1.0',
+	    serverURL : clientURL.attr('protocol') + '://' + clientURL.attr('host').replace("www.", "server.") + ':8080/sudoor-server-lib',
 	    odataURI : '/data/odata.svc',
 	    userURI : '/data/odata.svc/User',
 	    loginURI : '/j_spring_security_check',
@@ -31,8 +31,6 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 	        'afterDelete' : $.noop
 	    }
 	};
-
-	server._db = null;
 
 	/**
 	 * stand alone funcs
@@ -75,6 +73,7 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 		return remoteDBContext;
 	}
 
+	server._db = null;
 	/*
 	 * server.getDb() return DB promise with cache
 	 */
@@ -128,14 +127,13 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 	 */
 	server.getSession = function() {
 		if (!server._session) {
-			var authMsg = $.ajax({
+			server._session = Q($.ajax({
 			    url : server.config.serverURL + server.config.authenticationURI,
 			    type : 'GET',
 			    xhrFields : {
 				    withCredentials : true
 			    }
-			});
-			server._session = Q(authMsg).then(function(data) {
+			})).then(function(data) {
 				var sessionData = {
 					user : data
 				};
@@ -148,7 +146,7 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 	/*
 	 * server.destroySession() destroy session, so that can get fresh one via server.getSession()
 	 */
-	server.destroySession = function() {
+	server.refreshSession = function() {
 		server._session = null;
 	};
 
@@ -156,48 +154,50 @@ define([ 'q/q', 'jquery', 'purl/purl', 'OData', './logging', '../vendor/jaydata/
 	 * server.login() fire login msg & update session
 	 */
 	server.login = function(loginData) {
-		var loginMsg = $.ajax({
+		return Q($.ajax({
 		    url : server.config.serverURL + server.config.loginURI,
 		    type : 'POST',
 		    data : loginData,
 		    xhrFields : {
 			    withCredentials : true
 		    }
+		})).then(function() {
+			server.refreshSession();
 		});
-		var promise = Q(loginMsg).then(function() {
-			server.destroySession();
-			return server.getSession();
-		});
-		return promise;
 	};
 
 	/*
 	 * server.logout() fire logout msg & update session
 	 */
 	server.logout = function() {
-		var logoutMsg = $.ajax({
+		return Q($.ajax({
 		    url : server.config.serverURL + server.config.logoutURI,
 		    type : 'GET',
 		    xhrFields : {
 			    withCredentials : true
 		    }
+		})).then(function() {
+			server.refreshSession();
 		});
-		var promise = Q(logoutMsg).then(function() {
-			server.destroySession();
-			return server.getSession();
-		});
-		return promise;
 	};
 
 	/*
 	 * server.isLogin() check whether current session login
 	 */
 	server.isLogin = function() {
-		var data = server.getSession().inspect().value;
-		if (data) {
-			return (data.user.name != 'anonymousUser');
-		}
-		return false;
+		return server.getSession().then(function(sess) {
+			return sess.user.name != 'anonymousUser';
+		});
+	};
+
+	/*
+	 * server.register() invoke JayData
+	 */
+	server.register = function(registerData) {
+		return server.getDb().then(function(db) {
+			db.CredentialUsers.add(registerData);
+			return Q(db.saveChanges());
+		});
 	};
 
 	return server;
