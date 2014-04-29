@@ -408,10 +408,6 @@ module.exports = function(grunt) {
 		}
 
 		grunt.task.run([ 'connect:test', 'mocha' ]);
-
-		if (target == 'watch') {
-			grunt.task.run([ 'watch' ]);
-		}
 	});
 
 	grunt.registerTask('buildRequirejs', [ 'clean:requirejsApp', 'clean:requirejsDist', 'requirejs:compile', 'copy:requirejs', 'rev:requirejs',
