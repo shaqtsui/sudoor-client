@@ -14,6 +14,20 @@
     <script>var expect = chai.expect</script>
 
     <!-- include source files here... -->
+    <!-- build:js({app,.tmp}) scripts/require.js -->
+    <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
+    <script type="text/javascript" src="scripts/requirejs.config.js"></script>
+    <script type="text/javascript">
+        //TODO: WARNING: This is project specific config, need to be replaced with sub-project config
+        require.config({
+            paths: {
+                'sudoor-client/app': '..',
+                datajs: '../scripts/vendor/datajs/datajs-1.1.1',
+                OData: '../scripts/vendor/datajs/datajs-1.1.1'
+            }
+        });
+    </script>
+    <!-- endbuild -->
 
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
