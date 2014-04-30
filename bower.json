@@ -1,6 +1,6 @@
 {
   "name": "sudoor-client",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "dependencies": {
     "plupload": "~2.1.1",
     "jquery": "~2.1.0",
