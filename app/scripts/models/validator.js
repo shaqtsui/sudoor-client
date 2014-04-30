@@ -1,77 +1,73 @@
-define(['jquery', 'validator'], function ($) {
-	window.ParsleyConfig = window.ParsleyConfig || {};
-	window.ParsleyConfig = $.extend(true, {}, window.ParsleyConfig, {
-		validators: {
-			remote2: function () {
-				return {
-					validate: function (val, url, self) {
-						var result = null
-								, data = {}
-								, dataType = {};
+define([ 'jquery', 'validator' ], function($) {
 
-						data[ self.$element.attr('name') ] = val;
+	window.ParsleyValidator.addValidator(
+	        'remote2',
+	        function(val, url, self) {
+		        var result = null, data = {}, dataType = {};
 
-						if ('undefined' !== typeof self.options.remoteDatatype)
-							dataType = { dataType: self.options.remoteDatatype };
+		        data[self.$element.attr('name')] = val;
 
-						var manage = function (isConstraintValid, message) {
-							// remove error message if we got a server message, different from previous message
-							if ('undefined' !== typeof message && 'undefined' !== typeof self.Validator.messages.remote2 && message !== self.Validator.messages.remote2) {
-								$(self.UI.ulError + ' .remote2').remove();
-							}
+		        if ('undefined' !== typeof self.options.remoteDatatype)
+			        dataType = {
+				        dataType : self.options.remoteDatatype
+			        };
 
-							if (false === isConstraintValid) {
-								self.options.listeners.onFieldError(self.element, self.constraints, self);
-							} else if (true === isConstraintValid && false === self.options.listeners.onFieldSuccess(self.element, self.constraints, self)) {
-								// if onFieldSuccess returns (bool) false, consider that field si invalid
-								isConstraintValid = false;
-							}
+		        var manage = function(isConstraintValid, message) {
+			        // remove error message if we got a server message, different from previous message
+			        if ('undefined' !== typeof message && 'undefined' !== typeof self.Validator.messages.remote2
+			                && message !== self.Validator.messages.remote2) {
+				        $(self.UI.ulError + ' .remote2').remove();
+			        }
 
-							self.updtConstraint({ name: 'remote2', valid: isConstraintValid }, message);
-							self.manageValidationResult();
-						};
+			        if (false === isConstraintValid) {
+				        self.options.listeners.onFieldError(self.element, self.constraints, self);
+			        } else if (true === isConstraintValid && false === self.options.listeners.onFieldSuccess(self.element, self.constraints, self)) {
+				        // if onFieldSuccess returns (bool) false, consider that field si invalid
+				        isConstraintValid = false;
+			        }
 
-						// transform string response into object
-						var handleResponse = function (response) {
-							if ('object' === typeof response) {
-								return response;
-							}
+			        self.updtConstraint({
+			            name : 'remote2',
+			            valid : isConstraintValid
+			        }, message);
+			        self.manageValidationResult();
+		        };
 
-							try {
-								response = $.parseJSON(response);
-							} catch (err) {
-							}
+		        // transform string response into object
+		        var handleResponse = function(response) {
+			        if ('object' === typeof response) {
+				        return response;
+			        }
 
-							return response;
-						}
+			        try {
+				        response = $.parseJSON(response);
+			        } catch (err) {
+			        }
 
-						var manageErrorMessage = function (response) {
-							return 'object' === typeof response && null !== response ? ( 'undefined' !== typeof response.error ? response.error : ( 'undefined' !== typeof response.message ? response.message : null ) ) : null;
-						}
+			        return response;
+		        }
 
-						$.ajax($.extend({}, {
-							url: url + '/' + val,
-							data: data,
-							type: self.options.remoteMethod || 'GET',
-							success: function (response) {
-								response = handleResponse(response);
-								manage(!response, manageErrorMessage(response));
-							}, error: function (response) {
-								response = handleResponse(response);
-								manage(false, manageErrorMessage(response));
-							}
-						}, dataType));
+		        var manageErrorMessage = function(response) {
+			        return 'object' === typeof response && null !== response ? ('undefined' !== typeof response.error ? response.error
+			                : ('undefined' !== typeof response.message ? response.message : null)) : null;
+		        }
 
-						return result;
-					}, priority: 64
-				}
-			}
-		}, messages: {
-			remote2: "The email alreay registed"
-		}
-	});
+		        $.ajax($.extend({}, {
+		            url : url + '/' + val,
+		            data : data,
+		            type : self.options.remoteMethod || 'GET',
+		            success : function(response) {
+			            response = handleResponse(response);
+			            manage(!response, manageErrorMessage(response));
+		            },
+		            error : function(response) {
+			            response = handleResponse(response);
+			            manage(false, manageErrorMessage(response));
+		            }
+		        }, dataType));
 
+		        return result;
+	        }, 64).addMessage('en', 'remote2', 'User name already registed');
 
-	return window.ParsleyConfig;
+	return window.ParsleyValidator;
 });
-
