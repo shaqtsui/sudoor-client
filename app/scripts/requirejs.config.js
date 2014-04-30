@@ -42,7 +42,7 @@ require.config({
         'simplecart-js/simpleCart' : [ 'jquery' ],
         'foundation/js/foundation' : [ 'jquery', 'modernizr/modernizr', 'css!foundation/css/foundation' ],
 
-        'parsley' : [ 'jquery', 'css!parsleyjs/src/parsley' ],
+        'parsley' : [ 'jquery', 'css!parsleyjs/src/parsley', 'sudoor-client/app/scripts/models/parsleyExtend' ],
 
         'plupload/js/plupload.dev' : [ 'plupload/js/moxie' ],
         'plupload/js/jquery.ui.plupload/jquery.ui.plupload' : [ 'jquery-ui/ui/jquery-ui', 'plupload/js/plupload.dev',
