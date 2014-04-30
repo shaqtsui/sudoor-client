@@ -46,7 +46,7 @@ require.config({
 		'simplecart-js/simpleCart': ['jquery'],
 		'foundation/js/foundation': ['jquery', 'modernizr/modernizr', 'css!foundation/css/foundation'],
 
-		'validator': ['jquery'],
+		'validator': ['jquery', 'css!parsleyjs/src/parsley'],
 
 		'plupload/js/plupload.dev': ['plupload/js/moxie'],
 		'plupload/js/jquery.ui.plupload/jquery.ui.plupload': ['jquery-ui/ui/jquery-ui', 'plupload/js/plupload.dev', 'css!plupload/js/jquery.ui.plupload/css/jquery.ui.plupload'],
