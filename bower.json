@@ -39,7 +39,7 @@
     "requirejs-text": "~2.0.10",
     "reveal.js": "~2.6.1",
     "hammerjs": "~1.0.6",
-    "parsleyjs": "~2.0.0-rc3",
+    "parsleyjs": "~2.0.0",
     "jquery-cookie": "~1.4.0",
     "swiper": "~2.5.0",
     "raf": "https://gist.github.com/1579671.git",
