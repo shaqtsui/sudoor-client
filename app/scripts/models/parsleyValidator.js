@@ -28,8 +28,8 @@ define([ 'jquery', 'parsley' ], function($) {
 		    }
 		});
 
-		return deferred.promise();
-	}, 64).addMessage('en', 'remote2', 'User name already registed');
+		return true;
+	}, -1).addMessage('en', 'remote2', 'User name already registed');
 
 	return window.ParsleyValidator;
 });
