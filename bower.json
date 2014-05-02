@@ -44,7 +44,8 @@
     "swiper": "~2.5.0",
     "raf": "https://gist.github.com/1579671.git",
     "blockui": "*",
-    "extendFunction": "*"
+    "extendFunction": "*",
+    "angular-ui-router": "~0.2.10"
   },
   "devDependencies": {},
   "resolutions": {

@@ -59,6 +59,7 @@ require.config({
         'angular-loading-bar/src/loading-bar' : [ 'angular/angular', 'css!angular-loading-bar/src/loading-bar' ],
         'angular-http-auth/src/http-auth-interceptor' : [ 'angular/angular' ],
         'nginfinitescroll/build/ng-infinite-scroll' : [ 'angular/angular' ],
+        "angular-ui-router" : [ 'angular/angular' ],
         'angular-translate/angular-translate' : [ 'angular/angular' ],
         'angular-translate-loader-static-files/angular-translate-loader-static-files' : [ 'angular-translate/angular-translate' ],
         'angular-xeditable/dist/js/xeditable' : [ 'angular/angular', 'css!angular-xeditable/dist/css/xeditable' ],
