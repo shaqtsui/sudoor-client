@@ -1,6 +1,7 @@
 # Sudoor project used to be a base for application
 
-
+Sudoor is NOT an APP, it's only a lib & templates
+	If make it an APP, a lot of APP artifacts need to be introduced, which will increase the complexity. 
 
 ## 为什么sudoor-client
 

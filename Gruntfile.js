@@ -1,3 +1,4 @@
+// This file is intend to only serve as template, you need to find 'TODOs' & replace with your config.
 // Generated on 2014-03-13 using generator-webapp 0.4.8
 'use strict';
 
@@ -23,7 +24,20 @@ module.exports = function(grunt) {
 	    remoteServer : 'c:/apps/Apache24/htdocs',
 	    requirejs : {
 	        jsout : 'requirejs.optimized.js',
-	        cssout : 'requirejs.optimized.css'
+	        cssout : 'requirejs.optimized.css',
+
+	        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
+	        optModuleName : 'sudoor-client/app/scripts/models/server',
+
+	        // TODO: In sub-project this should changed to : '<%= config.app %>/bower_components/sudoor-client/app/scripts/requirejs.config.js'.
+	        optMainConfigFile : '<%= config.app %>/scripts/requirejs.config.js',
+
+	        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
+	        optPathsConfig : {
+	            'sudoor-client' : '../..',
+	            datajs : '../scripts/vendor/datajs/datajs-1.1.1',
+	            OData : '../scripts/vendor/datajs/datajs-1.1.1'
+	        }
 	    }
 	};
 	// Load grunt tasks automatically
@@ -66,19 +80,11 @@ module.exports = function(grunt) {
 			        // Out path need to be under app folder, so that to avoid "../app" in url rewrite
 			        out : '<%= config.app %>/' + mainCfg.requirejs.jsout,
 
-			        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
-			        name : 'sudoor-client/app/scripts/requirejs.config.cache',
+			        name : mainCfg.requirejs.optModuleName,
 
-			        // TODO: In sub-project this should changed to : '<%= config.app
-			        // %>/bower_components/sudoor-client/app/scripts/requirejs.config.js'.
-			        mainConfigFile : '<%= config.app %>/scripts/requirejs.config.js',
+			        mainConfigFile : mainCfg.requirejs.optMainConfigFile,
 
-			        // TODO: WARNING: This is project specific config, need to be replaced with sub-project config
-			        paths : {
-			            'sudoor-client' : '../..',
-			            datajs : '../scripts/vendor/datajs/datajs-1.1.1',
-			            OData : '../scripts/vendor/datajs/datajs-1.1.1'
-			        }
+			        paths : optPathsConfig
 			    }
 		    }
 	    },
