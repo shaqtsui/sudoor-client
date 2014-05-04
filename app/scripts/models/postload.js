@@ -1,4 +1,4 @@
-define(function () {
+define(['ladda/js/ladda'], function (Ladda) {
 	var postload = {};
 	postload.callBack = function (ctx) {
 		if (!ctx) {
@@ -15,6 +15,9 @@ define(function () {
 		$('form[data-parsley-validate]', ctx).each(function(i, o){
 			$(o).parsley();
 		});
+		
+		//Add ladda
+		Ladda.bind( '.ladda-button' );
 	}
 	return postload;
 });
