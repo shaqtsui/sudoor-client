@@ -30,7 +30,8 @@ require.config({
 	        text : 'requirejs-text/text',
 	        //Legacy, pls use shim config instead
 	        depend : 'requirejs-plugins/src/depend',
-	        json : 'requirejs-plugins/src/json'
+	        json : 'requirejs-plugins/src/json',
+	        spin : 'spin.js/spin'
 	    }
     },
     shim : {
@@ -50,6 +51,8 @@ require.config({
         'plupload/js/i18n/zh_CN' : [ 'plupload/js/jquery.ui.plupload/jquery.ui.plupload' ],
 
         'sudoor-client/app/scripts/vendor/jaydata/jaydata' : [ 'OData' ],
+
+        'ladda/js/ladda' : [ 'css!ladda/dist/ladda-themeless.min' ],
 
         //Angular
         'angular/angular' : [ 'jquery', 'raf/rAF' ],

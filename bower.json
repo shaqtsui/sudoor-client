@@ -45,11 +45,14 @@
     "raf": "https://gist.github.com/1579671.git",
     "blockui": "*",
     "extendFunction": "*",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "spin.js": "~2.0.0",
+    "ladda": "~0.9.3"
   },
   "devDependencies": {},
   "resolutions": {
     "angular": "1.2.14",
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "spin.js": "~2.0.0"
   }
 }
