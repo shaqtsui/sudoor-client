@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 
 			        mainConfigFile : mainCfg.requirejs.optMainConfigFile,
 
-			        paths : optPathsConfig
+			        paths : mainCfg.requirejs.optPathsConfig
 			    }
 		    }
 	    },
