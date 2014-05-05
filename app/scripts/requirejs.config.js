@@ -36,7 +36,6 @@ require.config({
     },
     shim : {
         'swiper/dist/idangerous.swiper' : [ 'jquery', 'css!swiper/dist/idangerous.swiper' ],
-        'swipe/swipe' : [ 'jquery', 'css!sudoor-client/app/styles/vendor/swipe/swipe' ],
         'jquery-ui/ui/jquery-ui' : [ 'jquery', 'css!jquery-ui/themes/base/jquery-ui' ],
         'purl/purl' : [ 'jquery' ],
         'bootstrap/dist/js/bootstrap' : [ 'jquery', 'css!bootstrap/dist/css/bootstrap', 'css!bootstrap/dist/css/bootstrap-theme' ],
