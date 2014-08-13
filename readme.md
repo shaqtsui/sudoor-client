@@ -252,12 +252,18 @@ MVC，我们可以将前端的代码象后台一样作分层处理，提高代�
 
 
 ### 软件配置(命令)：
-
+	Config nodejs install path to your env variable: path
+	
 	#This will install Grunt and Bower automatically	
 	npm install yo -g
 	npm install generator-webapp -g
 	
-	
+
+### Create Your Project:
+	Run this command to create a project:
+	yo webapp
+
+
 ### 引入sudoor-client:
 
 1. 修改 `bower.json`  在dependencies里加入 `"sudoor-client": "*"`
